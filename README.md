@@ -10,16 +10,38 @@ These are the shortest known-good steps to go from a mostly reset Mac mini to a 
 
 Update to latest version of Mac OS.
 
-## 2. Install VS Code
-
-Download and install VS Code for macOS.
-
-Open VS Code once so macOS finishes its first-run setup.
-
-## 3. Install XCode
+## 2. Install XCode
 
 Use Apple Store to install XCode.
 Open XCode, then close it.
+
+
+## 3. Install VS Code
+
+1. Go to: https://code.visualstudio.com
+
+2. Download the installer for macOS (Apple Silicon if available).
+
+3. Open the downloaded file and drag Visual Studio Code to the Applications folder.
+
+4. Launch VS Code from Applications.
+
+5. (Optional) Add VS Code to your PATH for command-line launching:
+
+	Open VS Code, press `Cmd+Shift+P`, type `Shell Command: Install 'code' command in PATH` and run it.
+
+6. Open VS Code once so macOS finishes its first-run setup.
+
+7. Create `~/dev/d` and clone this repository:
+
+	```bash
+	mkdir -p ~/dev/d
+	cd ~/dev/d
+	git clone https://github.com/brotherbill/c00_setup_greetings_d_macos.git
+	cd c00_setup_greetings_d_macos
+	```
+
+	(*Trust the authors if prompted*)
 
 ## 4. Download LDC Instead of DMD
 
