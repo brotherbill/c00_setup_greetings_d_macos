@@ -3,10 +3,13 @@
 # Usage: Run this script from the project folder containing new_d_project.sh
 
 SCRIPT_NAME="new_d_project.sh"
+SANITY_SCRIPT_NAME="sanity_check_macos.sh"
 USER_SCRIPTS="$HOME/scripts"
 SOURCE="$(pwd)/$SCRIPT_NAME"
 DEST="$USER_SCRIPTS/$SCRIPT_NAME"
 WRAPPER="$USER_SCRIPTS/new_d_project"
+SOURCE_SANITY="$(pwd)/$SANITY_SCRIPT_NAME"
+DEST_SANITY="$USER_SCRIPTS/$SANITY_SCRIPT_NAME"
 
 # Create scripts directory if it doesn't exist
 if [ ! -d "$USER_SCRIPTS" ]; then
@@ -16,6 +19,12 @@ fi
 # Copy new_d_project.sh to scripts directory
 cp "$SOURCE" "$DEST"
 chmod +x "$DEST"
+
+# Copy sanity script to scripts directory when present.
+if [ -f "$SOURCE_SANITY" ]; then
+    cp "$SOURCE_SANITY" "$DEST_SANITY"
+    chmod +x "$DEST_SANITY"
+fi
 
 # Create a wrapper script for easy calling
 cat > "$WRAPPER" << EOF

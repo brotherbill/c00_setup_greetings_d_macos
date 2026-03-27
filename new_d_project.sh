@@ -13,6 +13,8 @@ NAME="$1"
 DESCRIPTION="$2"
 REPO_URL="https://github.com/brotherbill/c00_greetings_d_wsl_ubuntu_template"
 DEST="$NAME"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SANITY_SCRIPT_SOURCE="$SCRIPT_DIR/sanity_check_macos.sh"
 
 sed_in_place() {
     local expr="$1"
@@ -58,6 +60,12 @@ fi
 
 # Remove project creation scripts from the new project
 rm -f "$DEST/new_d_project.ps1" "$DEST/setup_new_d_project_global.ps1" "$DEST/new_d_project.sh" "$DEST/setup_new_d_project_global.sh"
+
+# Copy sanity check script into the new project when available.
+if [ -f "$SANITY_SCRIPT_SOURCE" ]; then
+    cp "$SANITY_SCRIPT_SOURCE" "$DEST/sanity_check_macos.sh"
+    chmod +x "$DEST/sanity_check_macos.sh"
+fi
 
 # Replace all references in all files
 NAME_ESCAPED="$(escape_sed_replacement "$NAME")"

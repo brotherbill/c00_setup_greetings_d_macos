@@ -38,6 +38,13 @@ A D project is a collection of files for programming in the D language. This tem
    new_d_project my_new_project "My first D project"
    ```
 
+5. Enter your new project and run the sanity check:
+   ```bash
+   cd <project_name>
+   ./sanity_check_macos.sh
+   ```
+   This confirms your `dub`/`ldc2` setup, build task, and debug settings are ready.
+
 ## Tips
 - If you see `bb` in example paths, that is the author's username. Use your own macOS username instead.
 - If you get stuck, ask for help or search online. Take your time and read each step carefully.
