@@ -24,11 +24,18 @@ cat > "$WRAPPER" << EOF
 EOF
 chmod +x "$WRAPPER"
 
-# Add scripts directory to PATH in .bashrc if not already present
-if ! grep -q "export PATH=\$HOME/scripts:\$PATH" "$HOME/.bashrc"; then
-    echo 'export PATH="$HOME/scripts:$PATH"' >> "$HOME/.bashrc"
+# Detect shell profile file (macOS uses .zprofile, Linux uses .bashrc)
+if [ "$(uname)" = "Darwin" ]; then
+    PROFILE="$HOME/.zprofile"
+else
+    PROFILE="$HOME/.bashrc"
+fi
+
+# Add scripts directory to PATH in profile if not already present
+if ! grep -q 'HOME/scripts' "$PROFILE" 2>/dev/null; then
+    echo 'export PATH="$HOME/scripts:$PATH"' >> "$PROFILE"
     export PATH="$HOME/scripts:$PATH"
-    echo "Added $USER_SCRIPTS to your PATH. Restart your terminal or run: source ~/.bashrc"
+    echo "Added $USER_SCRIPTS to your PATH. Restart your terminal or run: source $PROFILE"
 else
     echo "$USER_SCRIPTS is already in your PATH."
 fi

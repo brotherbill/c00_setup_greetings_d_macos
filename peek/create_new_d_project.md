@@ -17,7 +17,7 @@ This will copy the project creation script to your user scripts directory and ad
 ```bash
 ./setup_new_d_project_global.sh
 
-source ~/.bashrc
+source ~/.zprofile
 ```
 
 ## 3. Create a New Project

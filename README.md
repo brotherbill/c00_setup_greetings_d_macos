@@ -13,7 +13,7 @@ chmod +x setup_new_d_project_global.sh
 ```bash
 ./setup_new_d_project_global.sh
 
-source ~/.bashrc
+source ~/.zprofile
 ```
 
 This will copy the project creation script to your user scripts directory and add it to your PATH.

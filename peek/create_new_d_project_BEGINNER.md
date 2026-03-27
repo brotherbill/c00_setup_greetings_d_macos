@@ -17,7 +17,7 @@ A D project is a collection of files for programming in the D language. This tem
    ```bash
    ./setup_new_d_project_global.sh
    
-   source ~/.bashrc
+   source ~/.zprofile
    ```
    The first command sets up the project creation tool. The second command updates your PATH so you can use the tool anywhere.
    
