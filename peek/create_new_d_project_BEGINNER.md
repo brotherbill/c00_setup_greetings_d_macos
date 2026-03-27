@@ -21,16 +21,7 @@ A D project is a collection of files for programming in the D language. This tem
    ```
    The first command sets up the project creation tool. The second command updates your PATH so you can use the tool anywhere.
    
-3. Create a new project:
-   ```bash
-   new_d_project <project_name> "<description>"
-   ```
-   Replace `<project_name>` with your project’s name and `<description>` with a short description. Example:
-   ```bash
-   new_d_project my_new_project "My first D project"
-   ```
-
-4. Organize your projects:
+3. Organize your projects and navigate to your projects folder:
    ```bash
    mkdir -p ~/dev/d
    
@@ -38,6 +29,15 @@ A D project is a collection of files for programming in the D language. This tem
    ```
    This creates a folder for your projects and moves you into it.
 
+4. Create a new project:
+   ```bash
+   new_d_project <project_name> "<description>"
+   ```
+   Replace `<project_name>` with your project's name and `<description>` with a short description. Example:
+   ```bash
+   new_d_project my_new_project "My first D project"
+   ```
+
 ## Tips
-- If you see `bb` in example paths, that is the author’s username. Use your own Ubuntu username instead.
+- If you see `bb` in example paths, that is the author's username. Use your own macOS username instead.
 - If you get stuck, ask for help or search online. Take your time and read each step carefully.
