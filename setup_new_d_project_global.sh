@@ -2,6 +2,8 @@
 # This script sets up new_d_project.sh for global use by copying it to ~/scripts and updating the PATH if needed.
 # Usage: Run this script from the project folder containing new_d_project.sh
 
+set -e
+
 SCRIPT_NAME="new_d_project.sh"
 SANITY_SCRIPT_NAME="sanity_check_macos.sh"
 USER_SCRIPTS="$HOME/scripts"
@@ -10,6 +12,11 @@ DEST="$USER_SCRIPTS/$SCRIPT_NAME"
 WRAPPER="$USER_SCRIPTS/new_d_project"
 SOURCE_SANITY="$(pwd)/$SANITY_SCRIPT_NAME"
 DEST_SANITY="$USER_SCRIPTS/$SANITY_SCRIPT_NAME"
+
+if [ ! -f "$SOURCE" ]; then
+    echo "Error: run this from the project directory containing $SCRIPT_NAME." >&2
+    exit 1
+fi
 
 # Create scripts directory if it doesn't exist
 if [ ! -d "$USER_SCRIPTS" ]; then
@@ -29,7 +36,7 @@ fi
 # Create a wrapper script for easy calling
 cat > "$WRAPPER" << EOF
 #!/bin/bash
-"$DEST" "\$@"
+exec "$DEST" "\$@"
 EOF
 chmod +x "$WRAPPER"
 
@@ -40,9 +47,12 @@ else
     PROFILE="$HOME/.bashrc"
 fi
 
+touch "$PROFILE"
+
 # Add scripts directory to PATH in profile if not already present
-if ! grep -q 'HOME/scripts' "$PROFILE" 2>/dev/null; then
-    echo 'export PATH="$HOME/scripts:$PATH"' >> "$PROFILE"
+PATH_EXPORT_LINE='export PATH="$HOME/scripts:$PATH"'
+if ! grep -Fqx "$PATH_EXPORT_LINE" "$PROFILE"; then
+    echo "$PATH_EXPORT_LINE" >> "$PROFILE"
     export PATH="$HOME/scripts:$PATH"
     echo "Added $USER_SCRIPTS to your PATH. Restart your terminal or run: source $PROFILE"
 else

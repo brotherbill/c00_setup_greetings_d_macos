@@ -1,5 +1,11 @@
 #!/bin/bash
-# clean.sh - Remove dub build folder and template executables/debug files
+# clean.sh - Remove dub build artifacts for macOS
+# Must be run from the greetings_d project root (where dub.json lives)
+
+if [ ! -f "dub.json" ] || ! grep -q '"name": "greetings_d"' dub.json; then
+    echo "Error: must be run from the greetings_d project root." >&2
+    exit 1
+fi
 
 # Remove .dub build folder
 if [ -d ".dub" ]; then
@@ -13,8 +19,8 @@ if [ -d "dub" ]; then
     rm -rf dub
 fi
 
-# Remove executables and debug symbol files matching template name
-for f in c00_greetings_d_wsl_ubuntu_template c00_greetings_d_wsl_ubuntu_template.exe c00_greetings_d_wsl_ubuntu_template.o c00_greetings_d_wsl_ubuntu_template.obj c00_greetings_d_wsl_ubuntu_template.pdb; do
+# Remove executables and debug symbol files matching project name (macOS: no .exe/.obj/.pdb)
+for f in greetings_d greetings_d.o; do
     if [ -e "$f" ]; then
         echo "Removing $f..."
         rm -f "$f"
@@ -39,13 +45,6 @@ for f in c00_greetings_d_wsl_ubuntu_template c00_greetings_d_wsl_ubuntu_template
         echo "Removing debug/$f..."
         rm -f "debug/$f"
     fi
-    # Also check in . for .pdb, .o, .obj
-    for ext in o obj pdb; do
-        if [ -e "c00_greetings_d_wsl_ubuntu_template.$ext" ]; then
-            echo "Removing c00_greetings_d_wsl_ubuntu_template.$ext..."
-            rm -f "c00_greetings_d_wsl_ubuntu_template.$ext"
-        fi
-    done
     # Remove from .dub if present
     if [ -e ".dub/$f" ]; then
         echo "Removing .dub/$f..."
@@ -62,3 +61,9 @@ for f in c00_greetings_d_wsl_ubuntu_template c00_greetings_d_wsl_ubuntu_template
         rm -f ".dub/build/$f"
     fi
 done
+
+# Remove macOS debug symbol bundle produced by ldc2
+if [ -d "greetings_d.dSYM" ]; then
+    echo "Removing greetings_d.dSYM/ directory..."
+    rm -rf greetings_d.dSYM
+fi

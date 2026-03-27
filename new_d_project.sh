@@ -67,6 +67,52 @@ if [ -f "$SANITY_SCRIPT_SOURCE" ]; then
     chmod +x "$DEST/sanity_check_macos.sh"
 fi
 
+# Write correct .vscode/tasks.json (overrides outdated template content)
+mkdir -p "$DEST/.vscode"
+cat > "$DEST/.vscode/tasks.json" << 'EOF'
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dub: build debug",
+      "type": "shell",
+      "command": "dub",
+      "args": [
+        "build",
+        "--build=debug",
+        "--compiler=ldc2"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
+EOF
+
+# Write correct .vscode/launch.json (overrides outdated template content)
+cat > "$DEST/.vscode/launch.json" << EOF
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug $NAME",
+      "type": "lldb",
+      "request": "launch",
+      "cwd": "\${workspaceFolder}",
+      "program": "\${workspaceFolder}/$NAME",
+      "preLaunchTask": "dub: build debug",
+      "console": "integratedTerminal"
+    }
+  ]
+}
+EOF
+
 # Replace all references in all files
 NAME_ESCAPED="$(escape_sed_replacement "$NAME")"
 while IFS= read -r -d '' file; do

@@ -11,7 +11,7 @@
 ## Steps
 1. Move scripts to root.
 2. Update any hardcoded paths or references in scripts.
-3. Update documentation (README.md, create_new_d_project.md, create_new_d_project_BEGINNER.md) to use new script locations.
+3. Update documentation (setup_D_environment_for_MacOS.md, create_new_d_project.md, create_new_d_project_BEGINNER.md) to use new script locations.
 4. Remove peek/ folder if empty.
 
 ## Notes
