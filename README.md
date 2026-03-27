@@ -34,9 +34,7 @@ Open XCode, then close it.
 
   Open VS Code, press `Windows+Shift+P`, type `Shell Command: Install 'code' command in PATH` and run it.
 
-6. Open VS Code once so macOS finishes its first-run setup.
-
-7. In Terminal, create `~/dev/d` and clone this repository:
+6. Open Terminal, create `~/dev/d` and clone this repository:
 
   ```bash
   mkdir -p ~/dev/d
@@ -48,13 +46,13 @@ Open XCode, then close it.
   cd c00_setup_greetings_d_macos
   ```
 
-8. Close Terminal
+7. Close Terminal
 
-9. Open VS Code, open folder to ~/dev/d/c00_setup_greetings_d_macos
+8. Open VS Code, open folder to ~/dev/d/c00_setup_greetings_d_macos
 
    (*Trust the authors if prompted*)
 
-10. Close VS Code
+9. Close VS Code
 
 ## 4. Download LDC Instead of DMD
 
@@ -82,11 +80,13 @@ If macOS blocks `ldc2` or `dub` the first time you run them:
 2. Open `System Settings` -> `Privacy & Security`.
 3. Click `Open Anyway` for the blocked binary.
 
+Close browser, Finder and Terminal.
+
 ## 5. Move the Toolchain to a Stable Folder
 
-Do not keep the compiler in Downloads.
+Do not keep the compiler in Downloads as this is too volatile a folder for long term assets.
 
-Run:
+In Terminal, run:
 
 ```bash
 mkdir -p ~/tools
@@ -100,41 +100,88 @@ Final tool location:
 ~/tools/ldc2-1.42.0-osx-arm64
 ```
 
+Close Terminal.
+
 ## 6. Add LDC and DUB to PATH
 
 Run these in Terminal, one command at a time.
 
-1. Set home as your working directory:
+1. This documents the minimal, safe steps to add LDC (the D compiler) and DUB to your `PATH` by creating `~/.zprofile`.
 
-```bash
-cd ~
-```
+   Summary (baby steps):
 
-2. Create `~/.zprofile` with the PATH setup:
+   1. Set your home directory as working directory:
 
-```bash
-cat > ~/.zprofile <<'EOF'
-if [ -x /opt/homebrew/bin/brew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+   ```bash
+   cd ~
+   ```
 
-if [ -d "$HOME/tools/ldc2-1.42.0-osx-arm64/bin" ]; then
-    export PATH="$HOME/tools/ldc2-1.42.0-osx-arm64/bin:$PATH"
-fi
-EOF
-```
+   2. Create `~/.zprofile` with the following contents. Use the heredoc below — the closing `EOF` is only a delimiter and will not be written into the file.
+      1. Get file from https://www.adrive.com/public/Rz3zaP/zprofile.txt
 
-3. Confirm the file contents:
+   ```bash
+   cat > ~/.zprofile <<'EOF'
+   if [ -x /opt/homebrew/bin/brew ]; then
+       eval "$(/opt/homebrew/bin/brew shellenv)"
+   fi
+   
+   if [ -d "$HOME/tools/ldc2-1.42.0-osx-arm64/bin" ]; then
+       export PATH="$HOME/tools/ldc2-1.42.0-osx-arm64/bin:$PATH"
+   fi
+   EOF
+   ```
 
-```bash
-sed -n '1,200p' ~/.zprofile
-```
+   Notes:
 
-4. Open a new terminal, or run:
+   - Do NOT leave a literal `EOF` line inside the saved `~/.zprofile`. `EOF` is only the heredoc delimiter used when creating the file.
+   - Using `<<'EOF'` writes the literal `$HOME` into the file. That's fine and portable — it will expand when the shell sources the file.
 
-```bash
-source ~/.zprofile
-```
+   3. Apply the new profile immediately in the current session:
+
+   ```bash
+   source ~/.zprofile
+   ```
+
+   4. Verify the binaries are on your `PATH` (run one or both):
+
+   ```bash
+   command -v ldc || which ldc
+   command -v dub || which dub
+   echo "$PATH" | tr ':' '\n'  # optional: inspect PATH entries
+   ```
+
+   5. If you use `~/.zshrc` and it doesn't pick up `~/.zprofile` for interactive shells, add this line to `~/.zshrc`:
+
+   ```bash
+   source ~/.zprofile
+   ```
+
+   6. If changes don't persist in new terminal windows, restart your terminal or log out/in.
+
+   If you'd like, I can also:
+
+   - verify the file contents for you (you can paste `cat -n ~/.zprofile` output),
+   - or update `~/.zshrc` to source `~/.zprofile`.
+
+   Additional actions performed (record):
+
+   - **Removed quarantine:** Some downloaded binaries can be blocked by macOS Gatekeeper. I removed the quarantine attribute for the LDC install with:
+
+   ```bash
+   /usr/bin/xattr -dr com.apple.quarantine "$HOME/tools/ldc2-1.42.0-osx-arm64/bin"
+   ```
+
+   - **Created `ldc` symlink:** The LDC distribution provides `ldc2`. I created a short `ldc` symlink so the `ldc` command is available:
+
+   ```bash
+   /bin/ln -sf "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc2" "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc"
+   ```
+
+   - **Verified execution & Gatekeeper:** I checked `spctl` and, after removing quarantine, `ldc` and `dub` ran successfully. If Gatekeeper still rejects an app, open System Settings → Privacy & Security → Allow Anyway for that app.
+
+   These actions were taken on Mar 27
+
+1. Close Terminal.
 
 ## 7. Verify the Toolchain
 
