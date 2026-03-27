@@ -80,7 +80,7 @@ If macOS blocks `ldc2` or `dub` the first time you run them:
 2. Open `System Settings` -> `Privacy & Security`.
 3. Click `Open Anyway` for the blocked binary.
 
-Close browser, Finder and Terminal.
+Close browser and Finder.
 
 ## 5. Move the Toolchain to a Stable Folder
 
@@ -117,7 +117,8 @@ Run these in Terminal, one command at a time.
    ```
 
    2. Create `~/.zprofile` with the following contents. Use the heredoc below — the closing `EOF` is only a delimiter and will not be written into the file.
-      1. Get file from https://www.adrive.com/public/Rz3zaP/zprofile.txt
+      1. Get file from `~/dev/d/c00_setup_greetings_d_macos/zprofile.txt`
+      2. In terminal, paste this and execute it as one command.
 
    ```bash
    cat > ~/.zprofile <<'EOF'
