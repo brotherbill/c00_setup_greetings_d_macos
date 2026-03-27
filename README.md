@@ -136,13 +136,21 @@ Run these in Terminal, one command at a time.
    - Do NOT leave a literal `EOF` line inside the saved `~/.zprofile`. `EOF` is only the heredoc delimiter used when creating the file.
    - Using `<<'EOF'` writes the literal `$HOME` into the file. That's fine and portable — it will expand when the shell sources the file.
 
-   3. Apply the new profile immediately in the current session:
+   3. If you downloaded LDC and macOS flagged the binaries, remove quarantine
+   and create a short `ldc` symlink so `ldc` is available alongside `ldc2`.
+
+   ```bash
+   /usr/bin/xattr -dr com.apple.quarantine "$HOME/tools/ldc2-1.42.0-osx-arm64/bin"
+   /bin/ln -sf "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc2" "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc"
+   ```
+
+   4. Apply the new profile immediately in the current session:
 
    ```bash
    source ~/.zprofile
    ```
 
-   4. Verify the binaries are on your `PATH` (run one or both):
+   5. Verify the binaries are on your `PATH` (run one or both):
 
    ```bash
    command -v ldc || which ldc
@@ -150,13 +158,13 @@ Run these in Terminal, one command at a time.
    echo "$PATH" | tr ':' '\n'  # optional: inspect PATH entries
    ```
 
-   5. If you use `~/.zshrc` and it doesn't pick up `~/.zprofile` for interactive shells, add this line to `~/.zshrc`:
+   6. If you use `~/.zshrc` and it doesn't pick up `~/.zprofile` for interactive shells, add this line to `~/.zshrc`:
 
    ```bash
    source ~/.zprofile
    ```
 
-   6. If changes don't persist in new terminal windows, restart your terminal or log out/in.
+   7. If changes don't persist in new terminal windows, restart your terminal or log out/in.
 
    If you'd like, I can also:
 
@@ -165,19 +173,7 @@ Run these in Terminal, one command at a time.
 
    Additional actions performed (record):
 
-   - **Removed quarantine:** Some downloaded binaries can be blocked by macOS Gatekeeper. I removed the quarantine attribute for the LDC install with:
-
-   ```bash
-   /usr/bin/xattr -dr com.apple.quarantine "$HOME/tools/ldc2-1.42.0-osx-arm64/bin"
-   ```
-
-   - **Created `ldc` symlink:** The LDC distribution provides `ldc2`. I created a short `ldc` symlink so the `ldc` command is available:
-
-   ```bash
-   /bin/ln -sf "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc2" "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc"
-   ```
-
-   - **Verified execution & Gatekeeper:** I checked `spctl` and, after removing quarantine, `ldc` and `dub` ran successfully. If Gatekeeper still rejects an app, open System Settings → Privacy & Security → Allow Anyway for that app.
+   - These steps (removing quarantine and creating a short `ldc` symlink) were moved into Step 6 above so `ldc` is available before verification. If you prefer the explicit commands recorded here as well, I can restore them.
 
    These actions were taken on Mar 27
 
