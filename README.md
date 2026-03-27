@@ -2,9 +2,13 @@
 
 Minimal D project with working macOS Apple Silicon build and F5 debug setup in VS Code.
 
+
 ## Express Route
 
 These are the shortest known-good steps to go from a mostly reset Mac mini to a working D setup for this repo.
+
+**Note:**
+You can also follow these steps on a mature developer's machine that already has VS Code, XCode, or other tools installed. In that case, you may safely skip or skim steps for software you already have. There is no harm in re-running these steps; at worst, you may be prompted to confirm or update existing installations, but nothing will be broken or lost.
 
 ## 1. Software Update
 
