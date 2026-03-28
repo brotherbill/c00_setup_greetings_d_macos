@@ -13,16 +13,6 @@ Installs `new_d_project.sh` globally so you can create new D projects from any d
 - Run from the project directory that contains `new_d_project.sh`.
 - `bash` must be available.
 
-## Usage
-
-```bash
-cd /path/to/c00_setup_greetings_d_macos
-
-bash setup_new_d_project_global.sh
-
-source ~/.zprofile
-```
-
 ## Step-by-step
 
 1. Navigate to this project's directory:
@@ -35,7 +25,7 @@ source ~/.zprofile
    chmod +x setup_new_d_project_global.sh
    ```
 
-3. Run it:
+3. Run:
    ```bash
    bash setup_new_d_project_global.sh
    ```

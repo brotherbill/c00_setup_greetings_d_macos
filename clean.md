@@ -55,7 +55,7 @@ ls -la
 
 5. Build and debug again:
 
-- In VS Code, press **F5**.
+- Open VS Code, press **F5** to debug.
 
 This triggers the task `dub: build debug` and recreates artifacts fresh.
 

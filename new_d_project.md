@@ -51,6 +51,8 @@ new_d_project <project_name> "<description>"
    code .
    ```
 
+6. Close Terminal and VS Code.
+
 ## Example
 
 ```bash
