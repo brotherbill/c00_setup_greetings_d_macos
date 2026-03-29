@@ -20,7 +20,7 @@ Installs `new_d_project.sh` globally so you can create new D projects from any d
    cd ~/dev/d/c00_setup_greetings_d_macos
    ```
 
-2. Make the script executable (first time only):
+2. Make the script executable (*first time only*):
    ```bash
    chmod +x setup_new_d_project_global.sh
    ```

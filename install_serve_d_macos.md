@@ -65,7 +65,7 @@ Windows means Windows key or Home key or Command key.
 
 Open VS Code.
 
-User Settings JSON (`Windows+Shift+P` → `Preferences: ,Open User Settings (JSON)`) and append:
+User Settings JSON (`Windows+Shift+P` → `Preferences: Open User Settings (JSON)`) and append:
 
 ```json
 "d.servedPath": "/Users/<your-username>/tools/serve-d/serve-d"
@@ -99,7 +99,7 @@ Close VS Code.
 To update, download a newer nightly ARM64 asset and overwrite the existing binary:
 
 ```bash
-curl -L -o ~/tools/serve-d/serve-d.tar.gz \
+curl -L -o ~/tools/serve-d/serve-d.tar.gz
   https://github.com/Pure-D/serve-d/releases/download/nightly/<new-filename>.tar.gz
   
 tar -xzf ~/tools/serve-d/serve-d.tar.gz -C ~/tools/serve-d/

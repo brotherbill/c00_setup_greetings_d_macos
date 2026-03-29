@@ -1,4 +1,4 @@
-# greetings_d
+# Setup D Environment for Mac OS
 
 Minimal D project with working macOS Apple Silicon build and F5 debug setup in VS Code.
 
@@ -355,6 +355,8 @@ Greetings from D!
 - If you try the official DMD macOS package on Apple Silicon, it may crash with a segmentation fault. LDC is the working path documented here.
 
 ## Quick Sanity Check (macOS)
+
+Open VS Code.
 
 After setup, run this from the repo root:
 

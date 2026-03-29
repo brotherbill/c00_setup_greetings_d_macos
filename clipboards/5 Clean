@@ -1,0 +1,11 @@
+1. Go to your project folder:
+cd /path/to/c00_setup_greetings_d_macos
+
+2. Confirm you are in the right folder:
+pwd
+
+3. List current build artifacts before cleaning:
+ls -la
+
+4. Run the cleanup script:
+./clean.sh

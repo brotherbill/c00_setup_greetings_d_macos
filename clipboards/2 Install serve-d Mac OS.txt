@@ -1,0 +1,32 @@
+1. Create a directory for serve-debug
+mkdir -p ~/tools/serve-d
+
+2. Download the latest nightly ARM64 binary
+curl -L -o ~/tools/serve-d/serve-d.tar.gz https://github.com/Pure-D/serve-d/releases/download/nightly/serve-d_osx-nightly-arm64-20251231-3c1601.tar.gz
+
+3. Extract the archive
+tar -xzf ~/tools/serve-d/serve-d.tar.gz -C ~/tools/serve-d/
+
+4. Verify the extracted binary
+ls ~/tools/serve-d/
+
+5. Make it executable
+chmod +x ~/tools/serve-d/serve-d
+
+6. Test the binary
+~/tools/serve-d/serve-d --version
+
+7. Configure VS Code to use it
+,
+"d.servedPath": "/Users/<your-username>/tools/serve-d/serve-d"
+
+8. Reload VS Code
+~/dev/d/c00_setup_greetings_d_macos
+
+Updating serve-D
+----------------
+curl -L -o ~/tools/serve-d/serve-d.tar.gz https://github.com/Pure-D/serve-d/releases/download/nightly/<new-filename>.tar.gz
+  
+tar -xzf ~/tools/serve-d/serve-d.tar.gz -C ~/tools/serve-d/
+
+chmod +x ~/tools/serve-d/serve-d

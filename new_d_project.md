@@ -56,7 +56,8 @@ new_d_project <project_name> "<description>"
 ## Example
 
 ```bash
-mkdir -p ~/dev/d && cd ~/dev/d
+mkdir -p ~/dev/d 
+cd ~/dev/d
 new_d_project hello_world "Hello World in D"
 cd hello_world
 ./sanity_check_macos.sh

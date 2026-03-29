@@ -1,0 +1,28 @@
+1. Navigate to the parent directory where you want the new project created:
+cd ~/dev/d
+
+2. Create the project:
+new_d_project my_new_project "My new D project"
+
+3. Enter the new project:
+cd my_new_project
+
+4. Run the sanity check to confirm the build and debug setup:
+./sanity_check_macos.sh
+
+5. Open in VS Code:
+code .
+
+
+Example:
+mkdir -p ~/dev/d 
+
+cd ~/dev/d
+
+new_d_project hello_world "Hello World in D"
+
+cd hello_world
+
+./sanity_check_macos.sh
+
+code .

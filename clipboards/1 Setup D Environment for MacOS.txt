@@ -1,0 +1,100 @@
+3. Install VS Code
+
+3.1 
+  https://code.visualstudio.com
+
+3.6
+  mkdir -p ~/dev/d
+
+  cd ~/dev/d
+
+  git clone https://github.com/brotherbill/c00_setup_greetings_d_macos.git
+
+  cd c00_setup_greetings_d_macos
+
+  8. 
+  ~/dev/d/c00_setup_greetings_d_macos
+
+4. Download LDC Instead of DMD
+
+4.0 
+https://github.com/ldc-developers/ldc/releases
+
+
+5. Move the Toolchain to a Stable Folder
+
+5.0
+mkdir -p ~/tools
+
+mv ~/Downloads/ldc2-1.42.0-osx-arm64 ~/tools/
+   
+6. Add LDC and DUB to PATH
+   
+6.1
+cd ~
+
+6.2
+cat > ~/.zprofile <<'EOF'
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if [ -d "$HOME/tools/ldc2-1.42.0-osx-arm64/bin" ]; then
+    export PATH="$HOME/tools/ldc2-1.42.0-osx-arm64/bin:$PATH"
+fi
+EOF
+
+6.3
+/usr/bin/xattr -dr com.apple.quarantine "$HOME/tools/ldc2-1.42.0-osx-arm64/bin"
+
+/bin/ln -sf "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc2" "$HOME/tools/ldc2-1.42.0-osx-arm64/bin/ldc"
+
+6.4
+source ~/.zprofile
+
+6.5
+command -v ldc || which ldc
+
+command -v dub || which dub
+
+echo "$PATH" | tr ':' '\n'  # optional: inspect PATH entries
+
+6.6
+source ~/.zprofile
+
+7. Verify the Toolchain
+dub --version | head -n 1
+
+ldc2 --version | head -n 1
+
+which dub
+
+which ldc2
+
+8. Open This Repo in VS Code
+cd ~/dev/d/c00_setup_greetings_d_macos/
+
+pwd
+
+cd ..
+
+pwd
+
+11. Build the Project
+
+11.1 
+cd ~/dev/d/c00_setup_greetings_d_macos
+
+11.2
+pwd
+
+11.3
+dub build --build=debug --compiler=ldc2
+
+12. Debug with F5
+
+12.1
+~/dev/d/c00_setup_greetings_d_macos
+
+Quick Sanity Check (macOS)
+./sanity_check_macos.sh
