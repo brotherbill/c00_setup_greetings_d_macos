@@ -8,12 +8,12 @@
 
   cd ~/dev/d
 
-  git clone https://github.com/brotherbill/c00_setup_greetings_d_macos.git
+  git clone https://github.com/brotherbill/c00_setup_greetings_d_macos_template.git
 
-  cd c00_setup_greetings_d_macos
+  cd c00_setup_greetings_d_macos_template
 
   8. 
-  ~/dev/d/c00_setup_greetings_d_macos
+  ~/dev/d/c00_setup_greetings_d_macos_template
 
 4. Download LDC Instead of DMD
 
@@ -72,7 +72,7 @@ which dub
 which ldc2
 
 8. Open This Repo in VS Code
-cd ~/dev/d/c00_setup_greetings_d_macos/
+cd ~/dev/d/c00_setup_greetings_d_macos_template/
 
 pwd
 
@@ -83,7 +83,7 @@ pwd
 11. Build the Project
 
 11.1 
-cd ~/dev/d/c00_setup_greetings_d_macos
+cd ~/dev/d/c00_setup_greetings_d_macos_template
 
 11.2
 pwd
@@ -94,7 +94,7 @@ dub build --build=debug --compiler=ldc2
 12. Debug with F5
 
 12.1
-~/dev/d/c00_setup_greetings_d_macos
+~/dev/d/c00_setup_greetings_d_macos_template
 
 Quick Sanity Check (macOS)
 ./sanity_check_macos.sh

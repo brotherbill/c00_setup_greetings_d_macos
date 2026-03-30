@@ -21,7 +21,7 @@ chmod +x ~/tools/serve-d/serve-d
 "d.servedPath": "/Users/<your-username>/tools/serve-d/serve-d"
 
 8. Reload VS Code
-~/dev/d/c00_setup_greetings_d_macos
+~/dev/d/c00_setup_greetings_d_macos_template
 
 Updating serve-D
 ----------------

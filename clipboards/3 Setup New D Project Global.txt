@@ -1,5 +1,5 @@
 1. Navigate to this project's directory
-cd ~/dev/d/c00_setup_greetings_d_macos
+cd ~/dev/d/c00_setup_greetings_d_macos_template
 
 2. Make the script executable (first time only)
 chmod +x setup_new_d_project_global.sh

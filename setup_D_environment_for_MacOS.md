@@ -45,14 +45,14 @@ Open XCode, then close it.
   
   cd ~/dev/d
   
-  git clone https://github.com/brotherbill/c00_setup_greetings_d_macos.git
+  git clone https://github.com/brotherbill/c00_setup_greetings_d_macos_template.git
   
-  cd c00_setup_greetings_d_macos
+  cd c00_setup_greetings_d_macos_template
   ```
 
 7. Close Terminal
 
-8. Open VS Code, open folder to ~/dev/d/c00_setup_greetings_d_macos
+8. Open VS Code, open folder to ~/dev/d/c00_setup_greetings_d_macos_template
 
    (*Trust the authors if prompted*)
 
@@ -122,7 +122,7 @@ Run these in Terminal, one command at a time.
    ```
 
    2. Create `~/.zprofile` with the following contents. Use the heredoc below — the closing `EOF` is only a delimiter and will not be written into the file.
-      1. Get file from `~/dev/d/c00_setup_greetings_d_macos/zprofile.txt`
+      1. Get file from `~/dev/d/c00_setup_greetings_d_macos_template/zprofile.txt`
       2. In terminal, paste this and execute it as one command.
 
    ```bash
@@ -222,12 +222,12 @@ Open the folder for this repo in VS Code.
 Reference paths for this setup:
 
 - Parent folder: `/Users/bb/dev/d`
-- Repo folder: `/Users/bb/dev/d/c00_setup_greetings_d_macos`
+- Repo folder: `/Users/bb/dev/d/c00_setup_greetings_d_macos_template`
 
 Optional Terminal, check (one command at a time):
 
 ```bash
-cd ~/dev/d/c00_setup_greetings_d_macos/
+cd ~/dev/d/c00_setup_greetings_d_macos_template/
 ```
 
 ```bash
@@ -298,7 +298,7 @@ Run these in Terminal, one command at a time.
 1. Navigate to the repo folder:
 
 ```bash
-cd ~/dev/d/c00_setup_greetings_d_macos
+cd ~/dev/d/c00_setup_greetings_d_macos_template
 ```
 
 (`~` is shorthand for your home folder — for example, `/Users/bb/` on the instructor's setup.)
@@ -309,7 +309,7 @@ cd ~/dev/d/c00_setup_greetings_d_macos
 pwd
 ```
 
-Expected result: `/Users/<your-username>/dev/d/c00_setup_greetings_d_macos`
+Expected result: `/Users/<your-username>/dev/d/c00_setup_greetings_d_macos_template`
 
 3. Build the project:
 
@@ -322,7 +322,7 @@ dub build --build=debug --compiler=ldc2
 ## 12. Debug with F5
 
 1. Open VS Code
-2. Open Folder to `~/dev/d/c00_setup_greetings_d_macos`
+2. Open Folder to `~/dev/d/c00_setup_greetings_d_macos_template`
 3. Open `source/app.d`, set a breakpoint on line 5, then press `F5`.
 
 If VS Code asks you to choose a debug configuration, select:

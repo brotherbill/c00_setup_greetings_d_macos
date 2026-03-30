@@ -87,7 +87,7 @@ Windows means Windows key or Home key or Command key.
 
 `Windows+Shift+P` → `Developer: Reload Window`.
 
-Open Folder: `~/dev/d/c00_setup_greetings_d_macos`
+Open Folder: `~/dev/d/c00_setup_greetings_d_macos`_template
 
 The `serve-d not installed` notification should no longer appear, and D language
 features (autocomplete, hover, go-to-definition) will be active.

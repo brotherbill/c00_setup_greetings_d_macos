@@ -17,7 +17,7 @@ Installs `new_d_project.sh` globally so you can create new D projects from any d
 
 1. Navigate to this project's directory:
    ```bash
-   cd ~/dev/d/c00_setup_greetings_d_macos
+   cd ~/dev/d/c00_setup_greetings_d_macos_template
    ```
 
 2. Make the script executable (*first time only*):
