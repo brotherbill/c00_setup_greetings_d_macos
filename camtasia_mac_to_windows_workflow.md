@@ -1,11 +1,18 @@
+
 # Camtasia Mac to Windows Workflow
 
 This guide covers moving a Camtasia project from Mac to Windows for advanced editing (including Audiate integration).
 
+## 0. Create Transfer Folder on Mac (Terminal Only)
+- In Terminal, run:
+	```bash
+	mkdir -p ~/Movies/camtasia_transfer/
+	```
+
 ## 1. Record on Mac
 - Open Camtasia for Mac
 - Record video/audio as usual
-- Save project (e.g., MyProject.tscproj)
+- When saving, use the path `~/Movies/camtasia_transfer/` (e.g., MyProject.tscproj). Use Terminal for navigation and file management whenever possible.
 
 ## 2. Dehydrate on Mac (Export for Windows)
 - File > Export > Project for Windows...
