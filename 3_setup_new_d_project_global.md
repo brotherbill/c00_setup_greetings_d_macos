@@ -15,6 +15,15 @@ Installs `new_d_project.sh` globally so you can create new D projects from any d
 
 ## Step-by-step
 
+### 0. Open VS Code 
+
+1. Open folder:  `~/dev/d/c00_setup_greetings_d_macos_template`
+1. Open `clipboards` folder
+1. Open `3 Setup New D Project Global.txt`
+   1. This is your source for Copy and Paste into Terminal
+
+### 1. Terminal Steps 
+
 1. Navigate to this project's directory:
    ```bash
    cd ~/dev/d/c00_setup_greetings_d_macos_template

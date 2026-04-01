@@ -1,9 +1,17 @@
 #!/bin/bash
 # clean.sh - Remove dub build artifacts for macOS
-# Must be run from the greetings_d project root (where dub.json lives)
 
-if [ ! -f "dub.json" ] || ! grep -q '"name": "greetings_d"' dub.json; then
-    echo "Error: must be run from the greetings_d project root." >&2
+# Must be run from the project root (where dub.json lives)
+
+if [ ! -f "dub.json" ]; then
+    echo "Error: dub.json not found. Must be run from the project root." >&2
+    exit 1
+fi
+
+# Extract project name from dub.json
+project_name=$(grep -o '"name"[[:space:]]*:[[:space:]]*"[^"]\+"' dub.json | head -n1 | sed 's/.*: *"\([^"]*\)"/\1/')
+if [ -z "$project_name" ]; then
+    echo "Error: Could not determine project name from dub.json." >&2
     exit 1
 fi
 
@@ -19,8 +27,13 @@ if [ -d "dub" ]; then
     rm -rf dub
 fi
 
+target_name=$(grep -o '"targetName"[[:space:]]*:[[:space:]]*"[^"]\+"' dub.json | head -n1 | sed 's/.*: *"\([^"]*\)"/\1/')
+if [ -z "$target_name" ]; then
+    target_name="$project_name"
+fi
+
 # Remove executables and debug symbol files matching project name (macOS: no .exe/.obj/.pdb)
-for f in greetings_d greetings_d.o; do
+for f in "$target_name" "$target_name.o"; do
     if [ -e "$f" ]; then
         echo "Removing $f..."
         rm -f "$f"
@@ -63,7 +76,7 @@ for f in greetings_d greetings_d.o; do
 done
 
 # Remove macOS debug symbol bundle produced by ldc2
-if [ -d "greetings_d.dSYM" ]; then
-    echo "Removing greetings_d.dSYM/ directory..."
-    rm -rf greetings_d.dSYM
+if [ -d "$target_name.dSYM" ]; then
+    echo "Removing $target_name.dSYM/ directory..."
+    rm -rf "$target_name.dSYM"
 fi

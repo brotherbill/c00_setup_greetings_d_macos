@@ -9,8 +9,16 @@ Creates a new D project from the template repository in any directory.
 new_d_project <project_name> "<description>"
 ```
 
-
 ## Step-by-step
+
+### 0. Open VS Code 
+
+1. Open folder:  `~/dev/d/c00_setup_greetings_d_macos_template`
+1. Open `clipboards` folder
+1. Open `4 Setup New D Project.txt`
+   1. This is your source for Copy and Paste into Terminal
+
+### 1. Open Terminal 
 
 1. Navigate to the parent directory where you want the new project created:
    ```bash

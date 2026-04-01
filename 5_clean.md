@@ -6,10 +6,20 @@ This document explains how to use `clean.sh` to safely remove build artifacts fr
 
 ### What It Does
 - Deletes the `.dub/` and `dub/` build directories if they exist.
-- Removes the compiled executable (`greetings_d`) and object file (`greetings_d.o`) from the project root, `source/`, `bin/`, and `build/` directories if present.
+- Removes the compiled executable (`my_next_new_project`) and object file (`my_next_new_project.o`) from the project root, `source/`, `bin/`, and `build/` directories if present.
 - Ensures you are running from the correct project root by checking for `dub.json` with the correct project name.
 
 ### Usage
+
+### 0. Open VS Code 
+
+1. Open folder:  `~/dev/d/my_next_new_project`
+1. Open `clipboards` folder
+1. Open `5 Clean.txt`
+   1. This is your source for Copy and Paste into Terminal
+
+### 1. Open Terminal 
+
 1. Open a terminal and navigate to your greetings_d project root (where `dub.json` is located).
 2. Run:
    ```sh

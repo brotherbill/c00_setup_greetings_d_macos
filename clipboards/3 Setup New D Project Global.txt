@@ -11,4 +11,4 @@ bash setup_new_d_project_global.sh
 source ~/.zprofile
 
 5. Verify the tool is available:
-source ~/.zprofile
+which new_d_project

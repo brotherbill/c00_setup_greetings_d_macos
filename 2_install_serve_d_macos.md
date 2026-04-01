@@ -13,6 +13,12 @@ macOS binary. For Apple Silicon (arm64), use the nightly pre-built binary.
 
 ## Steps
 
+### 0. Open VS Code 
+1. Open folder:  `~/dev/d/c00_setup_greetings_d_macos_template`
+1. Open `clipboards` folder
+1. Open `2 Install serve-db Mac OS.txt`
+    1. This is your source for Copy and Paste into Terminal
+
 ### 1. Create a directory for serve-d
 
 ```bash
