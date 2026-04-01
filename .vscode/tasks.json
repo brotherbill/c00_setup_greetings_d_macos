@@ -21,3 +21,26 @@
     }
   ]
 }
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dub: build debug",
+      "type": "shell",
+      "command": "dub",
+      "args": [
+        "build",
+        "--build=debug",
+        "--compiler=ldc2"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

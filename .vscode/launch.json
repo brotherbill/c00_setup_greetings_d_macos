@@ -12,3 +12,17 @@
     }
   ]
 }
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug greetings_d",
+      "type": "lldb",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/greetings_d",
+      "preLaunchTask": "dub: build debug",
+      "console": "integratedTerminal"
+    }
+  ]
+}
