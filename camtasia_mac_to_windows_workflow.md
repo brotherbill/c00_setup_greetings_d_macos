@@ -1,4 +1,5 @@
 
+
 # Camtasia Mac to Windows Workflow
 
 This guide covers moving a Camtasia project from Mac to Windows for advanced editing (including Audiate integration).

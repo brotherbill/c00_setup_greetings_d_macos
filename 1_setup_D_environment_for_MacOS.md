@@ -1,4 +1,4 @@
-# Setup D Environment for Mac OS
+# 1 Setup D Environment for Mac OS
 
 Minimal D project with working macOS Apple Silicon build and F5 debug setup in VS Code.
 
@@ -84,7 +84,7 @@ If macOS blocks `ldc2` or `dub` the first time you run them:
 2. Open `System Settings` -> `Privacy & Security`.
 3. Click `Open Anyway` for the blocked binary.
 
-Close browser and Finder.
+Close Browser and Finder.
 
 ## 5. Move the Toolchain to a Stable Folder
 
@@ -114,6 +114,7 @@ Run these in Terminal, one command at a time.
 
    Summary (baby steps):
 
+   1. Open VS Code, then Open Folder to  `~/dev/d/c00_setup_greetings_d_macos_template`
    1. Open Terminal
    1. Set your home directory as working directory:
 
@@ -121,9 +122,9 @@ Run these in Terminal, one command at a time.
    cd ~
    ```
 
-   2. Create `~/.zprofile` with the following contents. Use the heredoc below — the closing `EOF` is only a delimiter and will not be written into the file.
-      1. Get file from `~/dev/d/c00_setup_greetings_d_macos_template/zprofile.txt`
-      2. In terminal, paste this and execute it as one command.
+1. Create `~/.zprofile` with the following contents. Use the heredoc below — the closing `EOF` is only a delimiter and will not be written into the file.
+   1. Get file from `~/dev/d/c00_setup_greetings_d_macos_template/clipboards/1 Setup D Environment for MacOS.txt`
+   2. In terminal, paste this and execute it as one command.
 
    ```bash
    cat > ~/.zprofile <<'EOF'
@@ -178,6 +179,10 @@ Run these in Terminal, one command at a time.
 1. Close Terminal and editor such as VS Code or Text Edit.
 
 ## 7. Verify the Toolchain
+
+Open VS Code, then Open Folder to  `~/dev/d/c00_setup_greetings_d_macos_template`
+
+Open `clipboards/1 Setup D Environment for MacOS.txt` then scroll to step 7
 
 Run these in Terminal, one command at a time.
 
@@ -242,7 +247,7 @@ cd ..
 pwd
 ```
 
-Close Terminal.
+Close Terminal and VS Code.
 
 ## 9. Set VS Code Theme (Course Standard)
 
@@ -269,7 +274,7 @@ Students may use any color theme that is comfortable and readable for them.
 
 2. Open the Extensions view:
 
-- Click the Extensions icon in the left Activity Bar (looks like four squares), or press `Windows+Shift+X`
+3. Click the Extensions icon in the left Activity Bar (looks like four squares), or press `Windows+Shift+X`
 
 Install these extensions one at a time:
 

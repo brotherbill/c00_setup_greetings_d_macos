@@ -1,4 +1,4 @@
-# 5_new_d_project.sh
+# 4_new_d_project.sh
 
 Creates a new D project from the template repository in any directory.
 

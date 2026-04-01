@@ -1,4 +1,4 @@
-# Installing serve-d (D Language Server) on macOS Apple Silicon
+# 2 Installing serve-d (D Language Server) on macOS Apple Silicon
 
 The purpose of this installation step is to suppress the notification to add serve-d, by giving in and installing serve-d.  serve-d is not used in the course, but I have OCD, and can't tolerate that incessant notification.
 
